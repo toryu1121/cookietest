@@ -1,0 +1,8 @@
+
+h2 _input.slim
+button#btn btn
+
+coffee:
+  $("#btn").click =>
+    alert "Postします"
+    $.post "cookie/create", cookie_text: 111
