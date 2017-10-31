@@ -1,8 +1,14 @@
 
 h2 _input.slim
-button#btn btn
+
+
+= form_tag( { action: :create }, { remote: true } ) do
+    = text_area_tag :text
+    = submit_tag :post
+
+button#btn delete
 
 coffee:
   $("#btn").click =>
-    alert "Postします"
-    $.post "cookie/create", cookie_text: 111
+    # nilは送れなかったのでこれをnil代わりに
+    $.post "cookie/create", text: ""

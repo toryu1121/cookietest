@@ -4,9 +4,10 @@ class CookieController < ApplicationController
   end
 
   def create
-    p params.permit(:cookie_text)["cookie_text"]
+    session[:user_id] = params.permit(:text)["text"]
+    @tom = session[:user_id]
+    
     respond_to do |format|
-      
         format.js
     end    
   end
